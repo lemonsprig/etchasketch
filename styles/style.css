@@ -7,6 +7,7 @@
 
 body {
     min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -48,19 +49,30 @@ body {
 .main-content {
     display: flex;
     flex: 1;
+    width:100%;
 }
 
 .sidebar {
-    /*background-color: #1E1E1E;*/
     width: 300px;
-    flex: 0 0 auto;
     background-color: #1E1E1E;
     color: #FFFFFF;
     padding: 20px;
 }
 
 .game-area {
- 
+    margin: 50px;
+    width: 100%;
+    display: grid;
+    border: 1px solid black;
+    /*grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);*/
+    background-color: black;
+    grid-gap: 1px;
+}
+
+.cell {
+    background-color: white;
+    
 }
 
 .footer {
