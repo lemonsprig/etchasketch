@@ -53,10 +53,21 @@ body {
 }
 
 .sidebar {
+    display: flex;
+    flex-direction: column;
     width: 300px;
     background-color: #1E1E1E;
     color: #FFFFFF;
     padding: 20px;
+}
+
+.sidebar p {
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 .game-area {
@@ -72,7 +83,6 @@ body {
 
 .cell {
     background-color: white;
-    
 }
 
 .footer {
