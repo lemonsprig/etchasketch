@@ -5,16 +5,33 @@ const btnClear = document.querySelector('#clear').addEventListener('click', clea
 const btnSetSize = document.querySelector('#setSize').addEventListener('click', setSize);
 
 let gridSize = 16;
+let selectedColour = "#000000";
 
 
-
-function colour() {
-    this.style.backgroundColor = "red";
+function colour(target) {
+    let selectedColour =  document.querySelector('#colourpicker').value;
+    target.style.backgroundColor = selectedColour;
 }
 
-function randomColour(){
+function randomColour(target){
     let randomColour = Math.floor(Math.random()*16777215).toString(16);
-    this.style.backgroundColor = "#" + randomColour;    
+    target.style.backgroundColor = "#" + randomColour;    
+}
+
+function erase(target) {
+    target.style.backgroundColor = "#FFFFFF";
+}
+
+function fill(event){
+    let colorMode = document.querySelector('input[name="colorMode"]:checked').value;
+    if (colorMode === "colorSelect") {
+        console.log(event)
+        colour(event.originalTarget);
+    } else if (colorMode === "random") {
+        randomColour(event.originalTarget);
+    } else if (colorMode === "erase") {
+        erase(event.originalTarget)
+    }
 }
 
 function clearGrid() {
@@ -40,7 +57,7 @@ function drawGrid() {
         cell.classList = "cell";
         cell.id = `cell-${i}`;
         gamearea.appendChild(cell);
-        cell.addEventListener('mouseover', randomColour);
+        cell.addEventListener('mouseover', fill);
     }
 }
 

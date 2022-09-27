@@ -22,12 +22,23 @@
             <div class="sidebar">
                 <p>OPTIONS</p>
                 <button class="btn" id="clear">Clear the Grid</button>
-                <button class="btn" id="setSize">Set Grid Size</button>                            
-                <label><input type="radio" name="colourMode" value="colourSelect">Select</label>
-                <label><input type="radio" name="colorMode" value="random">Random</label>
-                <label><input type="radio" name="colorMode" value="erase">Erase</label> 
-                <label for="colourpicker"> Color Picker</label>
-                <input type="color" id="colourpicker" value="#ccccccc">    
+                <button class="btn" id="setSize">Set Grid Size</button>                       
+                <form>
+                    <label>
+                        <input type="radio" name="colorMode" value="colorSelect" Checked>
+                        Select
+                    </label>
+                    <label>
+                        <input type="radio" name="colorMode" value="random">
+                        Random
+                    </label>
+                    <label>
+                        <input type="radio" name="colorMode" value="erase">
+                        Erase
+                    </label> 
+                    <label for="colourpicker">Chosen colour</label>
+                    <input type="color" id="colourpicker" value="#cccccc">
+                </form>
             </div>
             <div class="game-area">
                 
