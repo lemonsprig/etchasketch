@@ -6,6 +6,7 @@ const btnSetSize = document.querySelector('#setSize').addEventListener('click', 
 
 let gridSize = 16;
 let selectedColour = "#000000";
+let rightMouseDown = false;
 
 
 function colour(target) {
@@ -24,14 +25,17 @@ function erase(target) {
 
 function fill(event){
     let colorMode = document.querySelector('input[name="colorMode"]:checked').value;
-    if (colorMode === "colorSelect") {
-        console.log(event)
-        colour(event.originalTarget);
-    } else if (colorMode === "random") {
-        randomColour(event.originalTarget);
-    } else if (colorMode === "erase") {
-        erase(event.originalTarget)
-    }
+    if (event.buttons !== 1) {
+        if (colorMode === "colorSelect") {
+            console.log(event.buttons)
+            colour(event.originalTarget);
+        } else if (colorMode === "random") {
+            randomColour(event.originalTarget);
+        } else if (colorMode === "erase") {
+            erase(event.originalTarget)
+        }    
+    } 
+    
 }
 
 function clearGrid() {
