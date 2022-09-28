@@ -27,12 +27,13 @@ function fill(event){
     let colorMode = document.querySelector('input[name="colorMode"]:checked').value;
     if (event.buttons !== 1) {
         if (colorMode === "colorSelect") {
-            console.log(event.buttons)
-            colour(event.originalTarget);
+            console.log(event.buttons);
+            console.log(event);
+            colour(event.target);
         } else if (colorMode === "random") {
-            randomColour(event.originalTarget);
+            randomColour(event.target);
         } else if (colorMode === "erase") {
-            erase(event.originalTarget)
+            erase(event.target)
         }    
     } 
     
@@ -61,7 +62,7 @@ function drawGrid() {
         cell.classList = "cell";
         cell.id = `cell-${i}`;
         gamearea.appendChild(cell);
-        cell.addEventListener('mouseover', fill);
+        cell.addEventListener('mouseenter', fill);
     }
 }
 
