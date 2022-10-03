@@ -41,7 +41,6 @@ function fill(event){
 
 function clearGrid() {
     const cells = gamearea.querySelectorAll('.cell');
-    //cells.forEach(cell => cell.style.backgroundColor = "#FFFFFF");
     cells.forEach(cell => cell.remove());
     drawGrid();
 }
