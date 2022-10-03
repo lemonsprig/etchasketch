@@ -23,6 +23,36 @@ function erase(target) {
     target.style.backgroundColor = "#FFFFFF";
 }
 
+function darken(target) {
+    let colour = target.style.backgroundColor;
+    if (!target.style.filter) {
+        target.style.filter = `brightness(0.9)`;    
+    } else {
+        let brightness = target.style.filter;
+        brightness = Number(brightness.substring(brightness.indexOf("(")+1, brightness.indexOf(")")));
+        if (brightness  >0 ) { 
+            brightness -= .1;
+            target.style.filter = `brightness(${brightness})`
+        }
+    }
+}
+
+function lighten(target) {
+    let colour = target.style.backgroundColor;
+    if (!target.style.filter) {
+        target.style.filter = `brightness(1.1)`;    
+    } else {
+        let brightness = target.style.filter;
+        brightness = Number(brightness.substring(brightness.indexOf("(")+1, brightness.indexOf(")")));
+        if (brightness  < 2 ) { 
+            brightness += .1;
+            target.style.filter = `brightness(${brightness})`
+        }
+    }
+}
+
+
+
 function fill(event){
     let colorMode = document.querySelector('input[name="colorMode"]:checked').value;
     if (event.buttons !== 1) {
@@ -34,6 +64,10 @@ function fill(event){
             randomColour(event.target);
         } else if (colorMode === "erase") {
             erase(event.target)
+        } else if (colorMode === "darken") {
+            darken(event.target)
+        } else if (colorMode === "lighten") {
+            lighten(event.target)
         }    
     } 
     
