@@ -11,11 +11,13 @@ let rightMouseDown = false;
 
 function colour(target) {
     let selectedColour =  document.querySelector('#colourpicker').value;
+    target.style.filter = "brightness(1)";
     target.style.backgroundColor = selectedColour;
 }
 
 function randomColour(target){
     let randomColour = Math.floor(Math.random()*16777215).toString(16);
+    target.style.filter = "brightness(1)";
     target.style.backgroundColor = "#" + randomColour;    
 }
 
@@ -50,8 +52,6 @@ function lighten(target) {
         }
     }
 }
-
-
 
 function fill(event){
     let colorMode = document.querySelector('input[name="colorMode"]:checked').value;
